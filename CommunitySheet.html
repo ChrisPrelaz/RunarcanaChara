@@ -11896,8 +11896,8 @@
 		<div class="sheet-section-spellbook">
 			<!-- Start hidden spell casting stats -->
 			<input type="hidden" name="attr_base_spell_dc" value="(8 + (@{global_spell_dc_bonus}))" />
-			<input type="hidden" name="attr_arcane_trickster_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
-			<input type="hidden" name="attr_bard_spell_bonus" value="(@{charisma_mod}+@{PB})" />
+			<input type="hidden" name="attr_acolyte_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
+			<input type="hidden" name="attr_arcane_spell_bonus" value="(@{charisma_mod}+@{PB})" />
 			<input type="hidden" name="attr_cleric_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
 			<input type="hidden" name="attr_druid_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
 			<input type="hidden" name="attr_eldritch_knight_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
@@ -11932,34 +11932,40 @@
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Cantrips Known</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_acolyte" value="( (ceil((@{rogue_level}-2)/1e10)*3) + (ceil((@{rogue_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_acolyte"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_bard" value="( (ceil(@{bard_level}/1e10)*2) + (ceil((@{bard_level}-3)/1e10)) + (ceil((@{bard_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_arcane"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_cleric" value="( (ceil(@{cleric_level}/1e10)*3) + (ceil((@{cleric_level}-3)/1e10)) + (ceil((@{cleric_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_brute"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_druid" value="( (ceil(@{druid_level}/1e10)*2) + (ceil((@{druid_level}-3)/1e10)) + (ceil((@{druid_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_combatant"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_eldritch_knight" value="( (ceil((@{fighter_level}-2)/1e10)*2) + (ceil((@{fighter_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_hunter"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_paladin" value="0" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_marksman"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_ranger" value="0" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_mercurial"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_sorcerer" value="( (ceil(@{sorcerer_level}/1e10)*4) + (ceil((@{sorcerer_level}-3)/1e10)) + (ceil((@{sorcerer_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_pilgrim"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_warlock" value="( (ceil(@{warlock_level}/1e10)*2) + (ceil((@{warlock_level}-3)/1e10)) + (ceil((@{warlock_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_techmaturge"   />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_wizard" value="( (ceil(@{wizard_level}/1e10)*3) + (ceil((@{wizard_level}-3)/1e10)) + (ceil((@{wizard_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_fauhwoon"   />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_cantrips_known_ottrani"   />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_cantrips_known_yordle"   />
 						</div>
 					</div>
 					<div class="sheet-row">
