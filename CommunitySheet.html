@@ -623,7 +623,7 @@
 					<h4 class="sheet-center">Level and Experience<span class="sheet-pictos-three">d</span></h4>
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-center" title="This is automatically calculated from your individual class levels listed in the class section">
-							<input class="sheet-underlined" type="number" name="attr_level" value="@{barbarian_level} + @{bard_level} + @{cleric_level} + @{druid_level} + @{fighter_level} + @{monk_level} + @{paladin_level} + @{ranger_level} + @{rogue_level} + @{sorcerer_level} + @{warlock_level} + @{wizard_level}" disabled="disabled">
+							<input class="sheet-underlined" type="number" name="attr_level" value="@{acolyte_level} + @{arcane_level} + @{bodhisattva_level} + @{brute_level} + @{combatant_level} + @{hunter_level} + @{marksman_level} + @{mercurial_level} + @{ninja_level} + @{pilgrim_level} + @{techmaturge_level}" disabled="disabled">
 							<br/>Overall Level</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center" title="This is a bonus for you being proficient in a given task.  This bonus automatically increases as you level up and is used automatically in various rolls">
 							<input class="sheet-underlined" type="number" name="attr_PB" value="(ceil((@{level})/1e10) + ceil((@{level})/4))" disabled="disabled">
@@ -11896,18 +11896,21 @@
 		<div class="sheet-section-spellbook">
 			<!-- Start hidden spell casting stats -->
 			<input type="hidden" name="attr_base_spell_dc" value="(8 + (@{global_spell_dc_bonus}))" />
-			<input type="hidden" name="attr_arcane_trickster_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
-			<input type="hidden" name="attr_bard_spell_bonus" value="(@{charisma_mod}+@{PB})" />
-			<input type="hidden" name="attr_cleric_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
-			<input type="hidden" name="attr_druid_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
-			<input type="hidden" name="attr_eldritch_knight_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
-			<input type="hidden" name="attr_paladin_spell_bonus" value="(@{charisma_mod}+@{PB})" />
-			<input type="hidden" name="attr_ranger_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
-			<input type="hidden" name="attr_sorcerer_spell_bonus" value="(@{charisma_mod}+@{PB})" />
-			<input type="hidden" name="attr_warlock_spell_bonus" value="(@{charisma_mod}+@{PB})" />
-			<input type="hidden" name="attr_wizard_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
+			<input type="hidden" name="attr_acolyte_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
+			<input type="hidden" name="attr_arcane_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
+			<input type="hidden" name="attr_brute_spell_bonus" value="(@{constitution_mod}+@{PB})" />
+			<input type="hidden" name="attr_combatant_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
+			<input type="hidden" name="attr_hunter_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
+			<input type="hidden" name="attr_marksman_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
+			<input type="hidden" name="attr_mercurial_spell_bonus" value="(@{charisma_mod}+@{PB})" />
+			<input type="hidden" name="attr_pilgrim_spell_bonus" value="(@{charisma_mod}+@{PB})" />
+			<input type="hidden" name="attr_techmaturge_spell_bonus" value="(@{intelligence_mod}+@{PB})" />
+			<input type="hidden" name="attr_fauhwoon_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
+			<input type="hidden" name="attr_ottrani_spell_bonus" value="(@{wisdom_mod}+@{PB})" />
+			<input type="hidden" name="attr_yordle_spell_bonus" value="(@{charisma_mod}+@{PB})" />
+			<input type="hidden" name="attr_runeborn_spell_bonus" value="(@{charisma_mod}+@{PB})" />
 			<!-- No longer used but leaving in for legacy support -->
-			<input type="hidden" name="attr_prepared_spells_max" value="@{spells_prepared_cleric} + @{spells_prepared_druid} + @{spells_prepared_paladin} + @{spells_prepared_wizard}" disabled="disabled">
+			<input type="hidden" name="attr_prepared_spells_max" value="@{spells_prepared_arcane}" disabled="disabled">
 			<!-- End  hidden spell casting stats -->
 			<div class="sheet-row sheet-margin-bottom">
 				<div class="sheet-col-1">
@@ -11927,226 +11930,169 @@
 						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Techmaturge</div>
 						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Fauhwoon</div>
                         <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Ottrani</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Runeborn</div>
 						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Yordle</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Cantrips Known</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_acolyte" value="( (ceil((@{rogue_level}-2)/1e10)*3) + (ceil((@{rogue_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_acolyte" value="( (ceil((@{acolyte_level})/1e10)*3) + (ceil((@{acolyte_level}-3)/1e10)) + (ceil((@{acolyte_level}-9)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_bard" value="( (ceil(@{bard_level}/1e10)*2) + (ceil((@{bard_level}-3)/1e10)) + (ceil((@{bard_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_arcane" value="( (ceil(@{arcane_level}/1e10)*3) + (ceil((@{arcane_level}-3)/1e10)) + (ceil((@{arcane_level}-9)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_cleric" value="( (ceil(@{cleric_level}/1e10)*3) + (ceil((@{cleric_level}-3)/1e10)) + (ceil((@{cleric_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_brute" value="( (ceil(@{brute_level}/1e10)*2) + (ceil((@{brute_level}-4)/1e10)) + (ceil((@{brute_level}-9)/1e10)) + (ceil((@{brute_level}-13)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_druid" value="( (ceil(@{druid_level}/1e10)*2) + (ceil((@{druid_level}-3)/1e10)) + (ceil((@{druid_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_combatant" value="( (ceil(@{combatant_level}/1e10)*2) + (ceil((@{combatant_level}-4)/1e10)) + (ceil((@{combatant_level}-9)/1e10)) + (ceil((@{combatant_level}-13)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_eldritch_knight" value="( (ceil((@{fighter_level}-2)/1e10)*2) + (ceil((@{fighter_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_hunter" value="( (ceil((@{hunter_level})/1e10)*2) + (ceil((@{hunter_level}-4)/1e10)) + (ceil((@{hunter_level}-9)/1e10)) + (ceil((@{hunter_level}-13)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_paladin" value="0" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_marksman" value="( (ceil((@{marksman_level})/1e10)*2) + (ceil((@{marksman_level}-7)/1e10)) + (ceil((@{hunter_level}-18)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_ranger" value="0" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_mercurial" value="( (ceil((@{mercurial_level})/1e10)*2) + (ceil((@{mercurial_level}-7)/1e10)) + (ceil((@{mercurial_level}-18)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_sorcerer" value="( (ceil(@{sorcerer_level}/1e10)*4) + (ceil((@{sorcerer_level}-3)/1e10)) + (ceil((@{sorcerer_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_pilgrim" value="( (ceil(@{pilgrim_level}/1e10)*2) + (ceil((@{pilgrim_level}-5)/1e10)) + (ceil((@{pilgrim_level}-8)/1e10)) + (ceil((@{pilgrim_level}-11)/1e10)) + (ceil((@{pilgrim_level}-15)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_warlock" value="( (ceil(@{warlock_level}/1e10)*2) + (ceil((@{warlock_level}-3)/1e10)) + (ceil((@{warlock_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_techmaturge" value="( (ceil(@{techmaturge_level}/1e10)*2) + (ceil((@{techmaturge_level}-7)/1e10)) + (ceil((@{techmaturge_level}-18)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cantrips_known_wizard" value="( (ceil(@{wizard_level}/1e10)*3) + (ceil((@{wizard_level}-3)/1e10)) + (ceil((@{wizard_level}-9)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_cantrips_known_fauhwoon" value="1" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_cantrips_known_ottrani" value="1" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_cantrips_known_runeborn" value="1" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_cantrips_known_yordle" value="( ceil((@{level})/1e10) + ceil((@{level}-10)/1e10) )" disabled="disabled" />
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Spells Known</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_arcane_trickster" value="( (ceil(@{rogue_level}/1e10)*3) +  (ceil((@{rogue_level}-3)/1e10)) + (ceil((@{rogue_level}-6)/1e10)) + (ceil((@{rogue_level}-7)/1e10)) + (ceil((@{rogue_level}-9)/1e10)) + (ceil((@{rogue_level}-10)/1e10)) + (ceil((@{rogue_level}-12)/1e10)) + (ceil((@{rogue_level}-13)/1e10)) + (ceil((@{rogue_level}-15)/1e10)) + (ceil((@{rogue_level}-18)/1e10)) + (ceil((@{rogue_level}-19)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_acolyte" value="( (ceil(@{acolyte_level}+@{wisdom_mod}) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_bard" value="( (ceil(@{bard_level}/1e10)*4) + (ceil((@{bard_level}-1)/1e10)) + (ceil((@{bard_level}-2)/1e10)) + (ceil((@{bard_level}-3)/1e10)) + (ceil((@{bard_level}-4)/1e10)) + (ceil((@{bard_level}-5)/1e10)) + (ceil((@{bard_level}-6)/1e10)) + (ceil((@{bard_level}-7)/1e10)) + (ceil((@{bard_level}-8)/1e10)) + (ceil((@{bard_level}-9)/1e10)*2) + (ceil((@{bard_level}-10)/1e10)) + (ceil((@{bard_level}-12)/1e10)) + (ceil((@{bard_level}-13)/1e10)*2) + (ceil((@{bard_level}-14)/1e10)) + (ceil((@{bard_level}-16)/1e10)) + (ceil((@{bard_level}-17)/1e10)*2) )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_brute" value="( (ceil((@{brute_level}-2)/1e10)*3) + (ceil((@{brute_level}-3)/1e10)) + (ceil((@{brute_level}-6)/1e10)) + (ceil((@{brute_level}-7)/1e10)) + (ceil((@{brute_level}-9)/1e10)) + (ceil((@{brute_level}-10)/1e10)) + (ceil((@{brute_level}-12)/1e10)) + (ceil((@{brute_level}-13)/1e10)) + (ceil((@{brute_level}-15)/1e10)) + (ceil((@{brute_level}-18)/1e10)) + (ceil((@{bard_level}-19)/1e10))  )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_cleric" value="0" disabled="disabled" />
+							<input type="number" name="attr_spells_known_fauhwoon" value="( (ceil((@{level}-4)/1e10)) + (ceil((@{level}-10)/1e10)) + (ceil((@{level}-16)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_druid" value="0" disabled="disabled" />
+							<input type="number" name="attr_spells_known_ottrani" value="( (ceil((@{level}-4)/1e10)) + (ceil((@{level}-10)/1e10)) + (ceil((@{level}-16)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_eldritch_knight" value="( (ceil((@{fighter_level}-2)/1e10)*3) + (ceil((@{fighter_level}-3)/1e10)) + (ceil((@{fighter_level}-6)/1e10)) + (ceil((@{fighter_level}-7)/1e10)) + (ceil((@{fighter_level}-9)/1e10)) + (ceil((@{fighter_level}-10)/1e10)) + (ceil((@{fighter_level}-12)/1e10)) + (ceil((@{fighter_level}-13)/1e10)) + (ceil((@{fighter_level}-15)/1e10)) + (ceil((@{fighter_level}-18)/1e10)) + (ceil((@{fighter_level}-19)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_runeborn" value="( (ceil((@{level}-4)/1e10)) + (ceil((@{level}-10)/1e10)) + (ceil((@{level}-16)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_paladin" value="0" disabled="disabled" />
+							<input type="number" name="attr_spells_known_yordle" value="( (ceil((@{level}-4)/1e10)) + (ceil((@{level}-8)/1e10)) + (ceil((@{level}-10)/1e10)) + (ceil((@{level}-14)/1e10)) + (ceil((@{level}-18)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_ranger" value="( (1+ceil(@{ranger_level}/2)) * (ceil((@{ranger_level}-1)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_techmaturge" value="( (ceil((@{techmaturge_level}-2)/1e10)*3) + (ceil((@{techmaturge_level}-3)/1e10)) + (ceil((@{techmaturge_level}-6)/1e10)) + (ceil((@{techmaturge_level}-7)/1e10)) + (ceil((@{techmaturge_level}-9)/1e10)) + (ceil((@{techmaturge_level}-10)/1e10)) + (ceil((@{techmaturge_level}-12)/1e10)) + (ceil((@{techmaturge_level}-13)/1e10)) + (ceil((@{techmaturge_level}-15)/1e10)) + (ceil((@{techmaturge_level}-18)/1e10)) + (ceil((@{techmaturge_level}-19)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_sorcerer" value="( (ceil(@{sorcerer_level}/1e10)*2) + (ceil((@{sorcerer_level}-1)/1e10)) + (ceil((@{sorcerer_level}-2)/1e10)) + (ceil((@{sorcerer_level}-3)/1e10)) + (ceil((@{sorcerer_level}-4)/1e10)) + (ceil((@{sorcerer_level}-5)/1e10)) + (ceil((@{sorcerer_level}-6)/1e10)) + (ceil((@{sorcerer_level}-7)/1e10)) + (ceil((@{sorcerer_level}-8)/1e10)) + (ceil((@{sorcerer_level}-9)/1e10)) + (ceil((@{sorcerer_level}-10)/1e10)) + (ceil((@{sorcerer_level}-12)/1e10)) + (ceil((@{sorcerer_level}-14)/1e10)) + (ceil((@{sorcerer_level}-16)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_combatant" value="( (ceil((@{combatant_level}-2)/1e10)*3) + (ceil((@{combatant_level}-3)/1e10)) + (ceil((@{combatant_level}-6)/1e10)) + (ceil((@{combatant_level}-7)/1e10)) + (ceil((@{combatant_level}-9)/1e10)) + (ceil((@{combatant_level}-10)/1e10)) + (ceil((@{combatant_level}-12)/1e10)) + (ceil((@{combatant_level}-13)/1e10)) + (ceil((@{combatant_level}-15)/1e10)) + (ceil((@{combatant_level}-18)/1e10)) + (ceil((@{combatant_level}-19)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_warlock" value="( (ceil(@{warlock_level}/1e10) + @{warlock_level}) - (ceil((@{warlock_level}-9)/1e10)) - (ceil((@{warlock_level}-11)/1e10)) - (ceil((@{warlock_level}-13)/1e10)) - (ceil((@{warlock_level}-15)/1e10)) - (ceil((@{warlock_level}-17)/1e10)) - (ceil((@{warlock_level}-19)/1e10)) )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_pilgrim" value="( (ceil((@{pilgrim_level})/1e10)*4) + (ceil((@{pilgrim_level}-1)/1e10)) + (ceil((@{pilgrim_level}-2)/1e10)) + (ceil((@{pilgrim_level}-3)/1e10)) + (ceil((@{pilgrim_level}-4)/1e10)) + (ceil((@{pilgrim_level}-5)/1e10)) + (ceil((@{pilgrim_level}-6)/1e10)) + (ceil((@{pilgrim_level}-7)/1e10)) + (ceil((@{pilgrim_level}-8)/1e10)) + (ceil((@{pilgrim_level}-9)/1e10)*2) + (ceil((@{pilgrim_level}-10)/1e10)) + (ceil((@{pilgrim_level}-11)/1e10)) + (ceil((@{pilgrim_level}-12)/1e10)) + (ceil((@{pilgrim_level}-13)/1e10)) + (ceil((@{pilgrim_level}-14)/1e10)) + (ceil((@{pilgrim_level}-15)/1e10)) + (ceil((@{pilgrim_level}-16)/1e10)*2) + (ceil((@{pilgrim_level}-17)/1e10)*2) + (ceil((@{pilgrim_level}-18)/1e10)*2) + (ceil((@{pilgrim_level}-17)/1e10)*4) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_wizard" value="0" disabled="disabled" />
+							<input type="number" name="attr_spells_known_hunter" value="( (ceil((@{hunter_level}-2)/1e10)*3) + (ceil((@{hunter_level}-3)/1e10)) + (ceil((@{hunter_level}-6)/1e10)) + (ceil((@{hunter_level}-7)/1e10)) + (ceil((@{hunter_level}-9)/1e10)) + (ceil((@{hunter_level}-10)/1e10)) + (ceil((@{hunter_level}-12)/1e10)) + (ceil((@{hunter_level}-13)/1e10)) + (ceil((@{hunter_level}-15)/1e10)) + (ceil((@{hunter_level}-18)/1e10)) + (ceil((@{hunter_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_marksman" value="( (ceil((@{marksman_level}-2)/1e10)*3) + (ceil((@{marksman_level}-3)/1e10)) + (ceil((@{marksman_level}-6)/1e10)) + (ceil((@{marksman_level}-7)/1e10)) + (ceil((@{marksman_level}-9)/1e10)) + (ceil((@{marksman_level}-10)/1e10)) + (ceil((@{marksman_level}-12)/1e10)) + (ceil((@{marksman_level}-13)/1e10)) + (ceil((@{marksman_level}-15)/1e10)) + (ceil((@{marksman_level}-18)/1e10)) + (ceil((@{marksman_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_mercurial" value="( (ceil((@{mercurial_level}-2)/1e10)*3) + (ceil((@{mercurial_level}-3)/1e10)) + (ceil((@{mercurial_level}-6)/1e10)) + (ceil((@{mercurial_level}-7)/1e10)) + (ceil((@{mercurial_level}-9)/1e10)) + (ceil((@{mercurial_level}-10)/1e10)) + (ceil((@{mercurial_level}-12)/1e10)) + (ceil((@{mercurial_level}-13)/1e10)) + (ceil((@{mercurial_level}-15)/1e10)) + (ceil((@{mercurial_level}-18)/1e10)) + (ceil((@{mercurial_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_arcane" value="( ((ceil(@{arcane_level})/1e10)*6) + ((ceil(@{arcane_level}-1)/1e10)) + ((ceil(@{arcane_level}-2)/1e10)) + ((ceil(@{arcane_level}-3)/1e10)) + ((ceil(@{arcane_level}-4)/1e10)) + ((ceil(@{arcane_level}-5)/1e10)) + ((ceil(@{arcane_level}-6)/1e10)) + ((ceil(@{arcane_level}-7)/1e10)) + ((ceil(@{arcane_level}-8)/1e10)) + ((ceil(@{arcane_level}-9)/1e10)) + ((ceil(@{arcane_level}-10)/1e10))+ ((ceil(@{arcane_level}-11)/1e10)) + ((ceil(@{arcane_level}-12)/1e10)) + ((ceil(@{arcane_level}-13)/1e10)) + ((ceil(@{arcane_level}-14)/1e10)) + ((ceil(@{arcane_level}-15)/1e10)) + ((ceil(@{arcane_level}-16)/1e10)) + ((ceil(@{arcane_level}-17)/1e10)) + ((ceil(@{arcane_level}-18)/1e10)) + ((ceil(@{arcane_level}-19)/1e10))  )" disabled="disabled" />
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Can Prepare</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_arcane_trickster" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_bard" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_cleric" value="( ((((@{cleric_level} + @{wisdom_mod}) + 1) + abs((@{cleric_level} + @{wisdom_mod}) - 1)) / 2) * (ceil(@{cleric_level}/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_druid" value="( ((((@{druid_level} + @{wisdom_mod}) + 1) + abs((@{druid_level} + @{wisdom_mod}) - 1)) / 2) * (ceil(@{druid_level}/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_eldritch_knight" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_paladin" value="( ((((floor(@{paladin_level}/2) + @{charisma_mod}) + 1) + abs((floor(@{paladin_level}/2) + @{charisma_mod}) - 1)) / 2) * (ceil((@{paladin_level}-1)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_ranger" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_sorcerer" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_warlock" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_wizard" value="( ((((@{wizard_level} + @{intelligence_mod}) + 1) + abs((@{wizard_level} + @{intelligence_mod}) - 1)) / 2) * (ceil(@{wizard_level}/1e10)) )" disabled="disabled" />
+							<!--Spells learned by knowledge arcane on level up-->
+							<input type="number" name="attr_spells_prepared_arcane" value="( ((((@{arcane_level} + @{intelligence_mod})) )" disabled="disabled" />
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Prepared</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_arcane_trickster" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_bard" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_cleric" value="(@{spells_prepared_count})" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_druid" value="(@{spells_prepared_count})" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_eldritch_knight" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_paladin" value="(@{spells_prepared_count})" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_ranger" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_sorcerer" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_warlock" value="0" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_prepared_count_wizard" value="(@{spells_prepared_count})" disabled="disabled" />
+							<input type="number" name="attr_spells_prepared_count_arcane" value="(@{spells_prepared_count})" disabled="disabled" />
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Save DC</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_arcane_trickster_spell_dc" value="(@{base_spell_dc}+@{arcane_trickster_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_acolyte_spell_dc" value="(@{base_spell_dc}+@{acolyte_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_bard_spell_dc" value="(@{base_spell_dc}+@{bard_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_arcane_spell_dc" value="(@{base_spell_dc}+@{arcane_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_cleric_spell_dc" value="(@{base_spell_dc}+@{cleric_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_brute_spell_dc" value="(@{base_spell_dc}+@{brute_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_druid_spell_dc" value="(@{base_spell_dc}+@{druid_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_combatant_spell_dc" value="(@{base_spell_dc}+@{combatant_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_eldritch_knight_spell_dc" value="(@{base_spell_dc}+@{eldritch_knight_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_hunter_spell_dc" value="(@{base_spell_dc}+@{hunter_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_paladin_spell_dc" value="(@{base_spell_dc}+@{paladin_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_marksman_spell_dc" value="(@{base_spell_dc}+@{marksman_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_ranger_spell_dc" value="(@{base_spell_dc}+@{ranger_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_mercurial_spell_dc" value="(@{base_spell_dc}+@{mercurial_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_sorcerer_spell_dc" value="(@{base_spell_dc}+@{sorcerer_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_pilgrim_spell_dc" value="(@{base_spell_dc}+@{pilgrim_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_warlock_spell_dc" value="(@{base_spell_dc}+@{warlock_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_techmaturge_spell_dc" value="(@{base_spell_dc}+@{techmaturge_spell_bonus})" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_wizard_spell_dc" value="(@{base_spell_dc}+@{wizard_spell_bonus})" disabled="disabled" />
+							<input type="number" name="attr_fauhwoon_spell_dc" value="(@{base_spell_dc}+@{fauhwoon_spell_bonus})" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_ottrani_spell_dc" value="(@{base_spell_dc}+@{ottrani_spell_bonus})" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_yordle_spell_dc" value="(@{base_spell_dc}+@{yordle_spell_bonus})" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_runeborn_spell_dc" value="(@{base_spell_dc}+@{runeborn_spell_bonus})" disabled="disabled" />
 						</div>
 					</div>
 					<hr/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr">
 							<div class="sheet-row sheet-sub-header">
-								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Sorcerer Specific</div>
+								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Arcane Specific</div>
 								<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 								<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Used</div>
 								<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Max</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-3 sheet-margin-top">Sorcery Points</div>
+								<div class="sheet-col-1-3 sheet-margin-top">Mana Points</div>
 								<div class="sheet-col-1-3">
-									<input type="number" name="attr_sorcery_points" value="0" min="0" step="1" />
+									<input type="number" name="attr_mana_points" value="0" min="0" step="1" />
 								</div>
 								<div class="sheet-col-1-3">
-									<input type="number" name="attr_sorcery_points_max" value="( @{sorcerer_level} * ceil((@{sorcerer_level}-1)/1e10) )" disabled="disabled" />
+									<input type="number" name="attr_mana_points_max" value="( (ceil((@{arcane_level}-1)/1e10)*2) + ((ceil(@{arcane_level}-2)/1e10)) + ((ceil(@{arcane_level}-3)/1e10)) + ((ceil(@{arcane_level}-4)/1e10)) + ((ceil(@{arcane_level}-5)/1e10)) + ((ceil(@{arcane_level}-6)/1e10)) + ((ceil(@{arcane_level}-7)/1e10)) + ((ceil(@{arcane_level}-8)/1e10)) + ((ceil(@{arcane_level}-9)/1e10)) + ((ceil(@{arcane_level}-10)/1e10))+ ((ceil(@{arcane_level}-11)/1e10)) + ((ceil(@{arcane_level}-12)/1e10)) + ((ceil(@{arcane_level}-13)/1e10)) + ((ceil(@{arcane_level}-14)/1e10)) + ((ceil(@{arcane_level}-15)/1e10)) + ((ceil(@{arcane_level}-16)/1e10)) + ((ceil(@{arcane_level}-17)/1e10)) + ((ceil(@{arcane_level}-18)/1e10)) + ((ceil(@{arcane_level}-19)/1e10))  ) )" disabled="disabled" />
 								</div>
 							</div>
 							<div class="sheet-row">
 								<div class="sheet-col-1">
-									<p class="sheet-small-note">Recharge on a long rest (4 recharge on a short rest if lvl 20). Used to power metamagic or convert to/from spell slots</p>
-								</div>
-							</div>
-						</div>
-						<div class="sheet-col-1-2 sheet-padl">
-							<div class="sheet-row sheet-sub-header">
-								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Warlock Specific</div>
-								<div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
-								<div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Used</div>
-								<div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Max</div>
-								<div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Level</div>
-							</div>
-							<div class="sheet-row">
-								<div class="sheet-col-1-4 sheet-margin-top">Spell Slots</div>
-								<div class="sheet-col-1-4">
-									<input type="number" name="attr_warlock_spell_slots" value="0" min="0" step="1" />
-								</div>
-								<div class="sheet-col-1-4">
-									<input type="number" name="attr_warlock_spell_slots_max" value="( ceil(@{warlock_level}/1e10) + (ceil((@{warlock_level}-1)/1e10)) + (ceil((@{warlock_level}-10)/1e10)) + (ceil((@{warlock_level}-16)/1e10)) )" disabled="disabled" />
-								</div>
-								<div class="sheet-col-1-4">
-									<input type="number" name="attr_warlock_spell_slots_level" value="( ceil(@{warlock_level}/1e10) + (ceil((@{warlock_level}-2)/1e10)) + (ceil((@{warlock_level}-4)/1e10)) + (ceil((@{warlock_level}-6)/1e10)) + (ceil((@{warlock_level}-8)/1e10)) )" disabled="disabled" />
-								</div>
-							</div>
-							<div class="sheet-row">
-								<div class="sheet-col-1">
-									<p class="sheet-small-note">Recharge on a long or short rest and are all of the same level</p>
-								</div>
-							</div>
-							<div class="sheet-row">
-								<div class="sheet-col-1-2 sheet-margin-top">Invocations Known</div>
-								<div class="sheet-col-1-2">
-									<input type="number" name="attr_warlock_invocations_known" value="( (ceil((@{warlock_level}-1)/1e10)*2) + (ceil((@{warlock_level}-4)/1e10)) + (ceil((@{warlock_level}-6)/1e10)) + (ceil((@{warlock_level}-8)/1e10)) + (ceil((@{warlock_level}-11)/1e10)) + (ceil((@{warlock_level}-14)/1e10)) + (ceil((@{warlock_level}-17)/1e10)) )" disabled="disabled" />
+									<p class="sheet-small-note">Recharge on a short rest. Used to power metamagic or convert to/from spell slots</p>
 								</div>
 							</div>
 						</div>
@@ -12342,16 +12288,19 @@
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
 									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
+									<option value="Acolyte">Acolyte</option>
+									<option value="Arcane">Arcane</option>
+									<option value="Brute">Brute</option>
+									<option value="Combatant">Combatant</option>
+									<option value="Hunter">Hunter</option>
+									<option value="Marksman">Marksman</option>
+									<option value="Mercurial">Mercurial</option>
+									<option value="Pilgrim">Pilgrim</option>
+									<option value="Techmaturge">Techmaturge</option>
+									<option value="Fauhwoon">Fauhwoon</option>
+									<option value="Ottrani">Ottrani</option>
+									<option value="Runeborn">Runeborn/option>
+									<option value="Yordle">Yordle</option>
 									<option value="Other Source">Other</option>
 								</select>
 							</div>
@@ -12481,16 +12430,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -12649,18 +12601,21 @@
 						<div class="sheet-row">
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
-									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
-									<option value="Other Source">Other</option>
+									<option value="0">Choose...</option>
+									<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+									<option value="@{arcane_spell_dc}">Arcane DC</option>
+									<option value="@{brute_spell_dc}">Brute DC</option>
+									<option value="@{combatant_spell_dc}">Combatant DC</option>
+									<option value="@{hunter_spell_dc}">Hunter DC</option>
+									<option value="@{marksman_spell_dc}">Marksman DC</option>
+									<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+									<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+									<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+									<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+									<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+									<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+									<option value="@{yordle_spell_dc}">Yordle DC</option>
+									<option value="0">Custom DC</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-vert-middle">
@@ -12789,16 +12744,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -13097,16 +13055,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -13405,16 +13366,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -13713,16 +13677,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -13881,18 +13848,21 @@
 						<div class="sheet-row">
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
-									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
-									<option value="Other Source">Other</option>
+									<option value="0">Choose...</option>
+									<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+									<option value="@{arcane_spell_dc}">Arcane DC</option>
+									<option value="@{brute_spell_dc}">Brute DC</option>
+									<option value="@{combatant_spell_dc}">Combatant DC</option>
+									<option value="@{hunter_spell_dc}">Hunter DC</option>
+									<option value="@{marksman_spell_dc}">Marksman DC</option>
+									<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+									<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+									<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+									<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+									<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+									<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+									<option value="@{yordle_spell_dc}">Yordle DC</option>
+									<option value="0">Custom DC</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-vert-middle">
@@ -14021,16 +13991,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -14189,18 +14162,21 @@
 						<div class="sheet-row">
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
-									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
-									<option value="Other Source">Other</option>
+									<option value="0">Choose...</option>
+									<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+									<option value="@{arcane_spell_dc}">Arcane DC</option>
+									<option value="@{brute_spell_dc}">Brute DC</option>
+									<option value="@{combatant_spell_dc}">Combatant DC</option>
+									<option value="@{hunter_spell_dc}">Hunter DC</option>
+									<option value="@{marksman_spell_dc}">Marksman DC</option>
+									<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+									<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+									<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+									<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+									<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+									<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+									<option value="@{yordle_spell_dc}">Yordle DC</option>
+									<option value="0">Custom DC</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-vert-middle">
@@ -14329,16 +14305,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -14497,18 +14476,21 @@
 						<div class="sheet-row">
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
-									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
-									<option value="Other Source">Other</option>
+									<option value="0">Choose...</option>
+									<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+									<option value="@{arcane_spell_dc}">Arcane DC</option>
+									<option value="@{brute_spell_dc}">Brute DC</option>
+									<option value="@{combatant_spell_dc}">Combatant DC</option>
+									<option value="@{hunter_spell_dc}">Hunter DC</option>
+									<option value="@{marksman_spell_dc}">Marksman DC</option>
+									<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+									<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+									<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+									<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+									<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+									<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+									<option value="@{yordle_spell_dc}">Yordle DC</option>
+									<option value="0">Custom DC</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-vert-middle">
@@ -14637,16 +14619,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -14805,18 +14790,21 @@
 						<div class="sheet-row">
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
-									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
-									<option value="Other Source">Other</option>
+									<option value="0">Choose...</option>
+									<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+									<option value="@{arcane_spell_dc}">Arcane DC</option>
+									<option value="@{brute_spell_dc}">Brute DC</option>
+									<option value="@{combatant_spell_dc}">Combatant DC</option>
+									<option value="@{hunter_spell_dc}">Hunter DC</option>
+									<option value="@{marksman_spell_dc}">Marksman DC</option>
+									<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+									<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+									<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+									<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+									<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+									<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+									<option value="@{yordle_spell_dc}">Yordle DC</option>
+									<option value="0">Custom DC</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-vert-middle">
@@ -14945,16 +14933,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -15113,18 +15104,21 @@
 						<div class="sheet-row">
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
-									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
-									<option value="Other Source">Other</option>
+									<option value="0">Choose...</option>
+									<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+									<option value="@{arcane_spell_dc}">Arcane DC</option>
+									<option value="@{brute_spell_dc}">Brute DC</option>
+									<option value="@{combatant_spell_dc}">Combatant DC</option>
+									<option value="@{hunter_spell_dc}">Hunter DC</option>
+									<option value="@{marksman_spell_dc}">Marksman DC</option>
+									<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+									<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+									<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+									<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+									<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+									<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+									<option value="@{yordle_spell_dc}">Yordle DC</option>
+									<option value="0">Custom DC</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-vert-middle">
@@ -15253,16 +15247,19 @@
 								<div class="sheet-col-1-6" title="Pick the class that the save DC will be created from or set your own DC by selecting custom here and then entering the DC in the next field">
 									<select name="attr_spellsavedc">
 										<option value="0">Choose...</option>
-										<option value="@{arcane_trickster_spell_dc}">Arcane Trickster DC</option>
-										<option value="@{bard_spell_dc}">Bard DC</option>
-										<option value="@{cleric_spell_dc}">Cleric DC</option>
-										<option value="@{druid_spell_dc}">Druid DC</option>
-										<option value="@{eldritch_knight_spell_dc}">Eldritch Knight DC</option>
-										<option value="@{paladin_spell_dc}">Paladin DC</option>
-										<option value="@{ranger_spell_dc}">Ranger DC</option>
-										<option value="@{sorcerer_spell_dc}">Sorcerer DC</option>
-										<option value="@{warlock_spell_dc}">Warlock DC</option>
-										<option value="@{wizard_spell_dc}">Wizard DC</option>
+										<option value="@{acolyte_spell_dc}">Acolyte DC</option>
+										<option value="@{arcane_spell_dc}">Arcane DC</option>
+										<option value="@{brute_spell_dc}">Brute DC</option>
+										<option value="@{combatant_spell_dc}">Combatant DC</option>
+										<option value="@{hunter_spell_dc}">Hunter DC</option>
+										<option value="@{marksman_spell_dc}">Marksman DC</option>
+										<option value="@{mercurial_spell_dc}">Mercurial DC</option>
+										<option value="@{pilgrim_spell_dc}">Pilgrim DC</option>
+										<option value="@{techmaturge_spell_dc}">Techmaturge DC</option>
+										<option value="@{fauhwoon_spell_dc}">Fauhwoon DC</option>
+										<option value="@{ottrani_spell_dc}">Ottrani DC</option>
+										<option value="@{runeborn_spell_dc}">Runeborn DC</option>
+										<option value="@{yordle_spell_dc}">Yordle DC</option>
 										<option value="0">Custom DC</option>
 									</select>
 								</div>
@@ -15382,7 +15379,7 @@
 				</div>
 			</div>
 			<h4 class="sheet-center">Weight <span class="sheet-pictos">a</span></h4>
-			<p class="sheet-small-note">All weights in lbs. Encumberance is a variant rule for weight carried. See PHB for full details or ignore if you dont use it..</p>
+			<p class="sheet-small-note">All weights in kgs. Encumberance is a variant rule for weight carried. See PHB for full details or ignore if you dont use it..</p>
 			<div class="sheet-row sheet-sub-header">
 				<div class="sheet-col-1-8 sheet-center sheet-small-label">Inventory</div>
 				<div class="sheet-col-1-8 sheet-center sheet-small-label">Coin</div>
@@ -16425,10 +16422,11 @@
 				<div class="sheet-col-2-5 sheet-padr">
 					<select name="attr_unarmoured_class_bonus">
 						<option value="(0 + 0.001)" selected="selected">None</option>
-						<option value="(@{constitution_mod} + 0.002)">Barbarian's unarmoured defense</option>
-						<option value="(@{wisdom_mod} + 0.003)">Monk's unarmoured defense</option>
-						<option value="(3 + 0.004)">Draconic Resilience (Sorceror subclass)</option>
+						<option value="(@{constitution_mod} + 0.002)">Brute's unarmoured defense</option>
+						<option value="(@{wisdom_mod} + 0.003)">Bodhisattva's unarmoured defense</option>
+						<option value="(1 + 0.004)">Minotaur Hide</option>
 					</select>
+					<!-- Attention -->
 				</div>
 			</div>
 			<div class="sheet-row">
@@ -16897,7 +16895,7 @@
     <input type="hidden" name="attr_drop_skills" accept="Skills">
     <input type="hidden" name="attr_drop_token_size" accept="Token Size">
     <!-- END COMPENDIUM DROP CATCHERS -->
-
+		<!--Start of the GM area of the sheet, need to ask Tyler if I am doing anything about this-->
 		<h4 class="sheet-center">NPC/Monster Sheet <span class="sheet-pictos">F</span></h4>
 		<p class="sheet-small-note">This page of the character sheet is intended for use by GM/DM's only. All the macros on this page send their output only to the GM via a private whisper/tell. GM/DM's should be sure to make sure any data entered into larger text fields is all on one line as any line breaks will break the output and some of it will be shown in public chat. There is no current workaround for this but the Roll20 devs are aware and reviewing the options. </p>
 		<div class="sheet-row sheet-npc-output-options sheet-checkbox-row sheet-margin-bottom">
