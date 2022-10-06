@@ -212,7 +212,7 @@
 /* overall wrapper to fix moving width issues with overflow on hidden sections */
 
 .sheet-overall-wrapper {
-	max-width: 900px;
+	max-width: 832px;
 }
 
 

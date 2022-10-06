@@ -1603,16 +1603,6 @@
 							<input type="number" class="sheet-passive-skill-score" name="attr_passive_investigation" value="10 + @{investigation}" disabled="disabled">
 						</div>
 					</div>
-				</div>
-				<div class="sheet-col-1-2">
-					<div class="sheet-row sheet-sub-header">
-						<div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
-						<div class="sheet-col-7-24 sheet-small-label">Skill</div>
-						<div class="sheet-col-1-4 sheet-center sheet-small-label">Proficient</div>
-						<div class="sheet-col-1-8 sheet-center sheet-small-label">Bonus</div>
-						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
-						<div class="sheet-col-1-12 sheet-center sheet-small-label">Pass</div>
-					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12 sheet-align-center">
 							<input type="checkbox" name="attr_medicine_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
@@ -1694,6 +1684,16 @@
 						<div class="sheet-col-1-12">
 							<input type="number" class="sheet-passive-skill-score" name="attr_passive_medicine" value="10 + @{medicine}" disabled="disabled">
 						</div>
+					</div>
+				</div>
+				<div class="sheet-col-1-2">
+					<div class="sheet-row sheet-sub-header">
+						<div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
+						<div class="sheet-col-7-24 sheet-small-label">Skill</div>
+						<div class="sheet-col-1-4 sheet-center sheet-small-label">Proficient</div>
+						<div class="sheet-col-1-8 sheet-center sheet-small-label">Bonus</div>
+						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
+						<div class="sheet-col-1-12 sheet-center sheet-small-label">Pass</div>
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12 sheet-align-center">
@@ -12020,12 +12020,51 @@
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Can Prepare</div>
 						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_prepared_acolyte" value="( ((((@{acolyte_level} + @{wisdom_mod})) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
 							<!--Spells learned by knowledge arcane on level up-->
 							<input type="number" name="attr_spells_prepared_arcane" value="( ((((@{arcane_level} + @{intelligence_mod})) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_brute" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_combatant" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_hunter" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_marksman" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_mercurial" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_pilgrim" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_techmaturge" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_fauhwoon" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_ottrani" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_runeborn" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="text" name="attr_spells_prepared_yordle" value="-" disabled="disabled" />
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Prepared</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_prepared_count_acolyte" value="(@{spells_prepared_count})" disabled="disabled" />
+						</div>
 						<div class="sheet-col-1-12">
 							<input type="number" name="attr_spells_prepared_count_arcane" value="(@{spells_prepared_count})" disabled="disabled" />
 						</div>
