@@ -2412,11 +2412,11 @@
 							<!-- close outer modal div -->
 						</div>
 						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Survival_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Survival (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{survival}]] + [[@{global_check_bonus}]] ]]}} @{ro_survival} @{classactionsurvival}"></button>
+							<button class="sheet-skill-roll" type="roll" name="roll_Technology_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Technology (Int)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{technology}]] + [[@{global_check_bonus}]] ]]}} @{ro_technology} @{classactiontechnology}"></button>
 						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Survival (Wis)</div>
+						<div class="sheet-col-7-24 sheet-skill-name">Technology (Int)</div>
 						<div class="sheet-col-1-4">
-							<select name="attr_survival_prof_exp">
+							<select name="attr_technology_prof_exp">
 								<option value="0">No</option>
 								<option value="floor(@{PB} / 2)">Jack of all trades</option>
 								<option value="@{PB}">Yes</option>
@@ -2424,13 +2424,13 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8">
-							<input type="number" name="attr_survival_bonus" value="0" step="1" />
+							<input type="number" name="attr_technology_bonus" value="0" step="1" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_survival" value="@{survival_prof_exp}+@{wisdom_mod}+@{survival_bonus}" disabled="disabled">
+							<input type="number" name="attr_technology" value="@{technology_prof_exp}+@{intelligence_mod}+@{technology_bonus}" disabled="disabled">
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_survival" value="10 + @{survival}" disabled="disabled">
+							<input type="number" class="sheet-passive-skill-score" name="attr_passive_technology" value="10 + @{technology}" disabled="disabled">
 						</div>
 					</div>
 				</div>
@@ -11978,10 +11978,31 @@
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-margin-top sheet-center">Spells Known</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_acolyte" value="( (ceil(@{acolyte_level}+@{wisdom_mod}) )" disabled="disabled" />
+							<input type="text" name="attr_spells_known_acolyte" value="-" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_arcane" value="( ((ceil(@{arcane_level})/1e10)*6) + ((ceil(@{arcane_level}-1)/1e10)) + ((ceil(@{arcane_level}-2)/1e10)) + ((ceil(@{arcane_level}-3)/1e10)) + ((ceil(@{arcane_level}-4)/1e10)) + ((ceil(@{arcane_level}-5)/1e10)) + ((ceil(@{arcane_level}-6)/1e10)) + ((ceil(@{arcane_level}-7)/1e10)) + ((ceil(@{arcane_level}-8)/1e10)) + ((ceil(@{arcane_level}-9)/1e10)) + ((ceil(@{arcane_level}-10)/1e10))+ ((ceil(@{arcane_level}-11)/1e10)) + ((ceil(@{arcane_level}-12)/1e10)) + ((ceil(@{arcane_level}-13)/1e10)) + ((ceil(@{arcane_level}-14)/1e10)) + ((ceil(@{arcane_level}-15)/1e10)) + ((ceil(@{arcane_level}-16)/1e10)) + ((ceil(@{arcane_level}-17)/1e10)) + ((ceil(@{arcane_level}-18)/1e10)) + ((ceil(@{arcane_level}-19)/1e10))  )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
 							<input type="number" name="attr_spells_known_brute" value="( (ceil((@{brute_level}-2)/1e10)*3) + (ceil((@{brute_level}-3)/1e10)) + (ceil((@{brute_level}-6)/1e10)) + (ceil((@{brute_level}-7)/1e10)) + (ceil((@{brute_level}-9)/1e10)) + (ceil((@{brute_level}-10)/1e10)) + (ceil((@{brute_level}-12)/1e10)) + (ceil((@{brute_level}-13)/1e10)) + (ceil((@{brute_level}-15)/1e10)) + (ceil((@{brute_level}-18)/1e10)) + (ceil((@{bard_level}-19)/1e10))  )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_combatant" value="( (ceil((@{combatant_level}-2)/1e10)*3) + (ceil((@{combatant_level}-3)/1e10)) + (ceil((@{combatant_level}-6)/1e10)) + (ceil((@{combatant_level}-7)/1e10)) + (ceil((@{combatant_level}-9)/1e10)) + (ceil((@{combatant_level}-10)/1e10)) + (ceil((@{combatant_level}-12)/1e10)) + (ceil((@{combatant_level}-13)/1e10)) + (ceil((@{combatant_level}-15)/1e10)) + (ceil((@{combatant_level}-18)/1e10)) + (ceil((@{combatant_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_hunter" value="( (ceil((@{hunter_level}-2)/1e10)*3) + (ceil((@{hunter_level}-3)/1e10)) + (ceil((@{hunter_level}-6)/1e10)) + (ceil((@{hunter_level}-7)/1e10)) + (ceil((@{hunter_level}-9)/1e10)) + (ceil((@{hunter_level}-10)/1e10)) + (ceil((@{hunter_level}-12)/1e10)) + (ceil((@{hunter_level}-13)/1e10)) + (ceil((@{hunter_level}-15)/1e10)) + (ceil((@{hunter_level}-18)/1e10)) + (ceil((@{hunter_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_marksman" value="( (ceil((@{marksman_level}-2)/1e10)*3) + (ceil((@{marksman_level}-3)/1e10)) + (ceil((@{marksman_level}-6)/1e10)) + (ceil((@{marksman_level}-7)/1e10)) + (ceil((@{marksman_level}-9)/1e10)) + (ceil((@{marksman_level}-10)/1e10)) + (ceil((@{marksman_level}-12)/1e10)) + (ceil((@{marksman_level}-13)/1e10)) + (ceil((@{marksman_level}-15)/1e10)) + (ceil((@{marksman_level}-18)/1e10)) + (ceil((@{marksman_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_mercurial" value="( (ceil((@{mercurial_level}-2)/1e10)*3) + (ceil((@{mercurial_level}-3)/1e10)) + (ceil((@{mercurial_level}-6)/1e10)) + (ceil((@{mercurial_level}-7)/1e10)) + (ceil((@{mercurial_level}-9)/1e10)) + (ceil((@{mercurial_level}-10)/1e10)) + (ceil((@{mercurial_level}-12)/1e10)) + (ceil((@{mercurial_level}-13)/1e10)) + (ceil((@{mercurial_level}-15)/1e10)) + (ceil((@{mercurial_level}-18)/1e10)) + (ceil((@{mercurial_level}-19)/1e10)) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_pilgrim" value="( (ceil((@{pilgrim_level})/1e10)*4) + (ceil((@{pilgrim_level}-1)/1e10)) + (ceil((@{pilgrim_level}-2)/1e10)) + (ceil((@{pilgrim_level}-3)/1e10)) + (ceil((@{pilgrim_level}-4)/1e10)) + (ceil((@{pilgrim_level}-5)/1e10)) + (ceil((@{pilgrim_level}-6)/1e10)) + (ceil((@{pilgrim_level}-7)/1e10)) + (ceil((@{pilgrim_level}-8)/1e10)) + (ceil((@{pilgrim_level}-9)/1e10)*2) + (ceil((@{pilgrim_level}-10)/1e10)) + (ceil((@{pilgrim_level}-11)/1e10)) + (ceil((@{pilgrim_level}-12)/1e10)) + (ceil((@{pilgrim_level}-13)/1e10)) + (ceil((@{pilgrim_level}-14)/1e10)) + (ceil((@{pilgrim_level}-15)/1e10)) + (ceil((@{pilgrim_level}-16)/1e10)*2) + (ceil((@{pilgrim_level}-17)/1e10)*2) + (ceil((@{pilgrim_level}-18)/1e10)*2) + (ceil((@{pilgrim_level}-17)/1e10)*4) )" disabled="disabled" />
+						</div>
+						<div class="sheet-col-1-12">
+							<input type="number" name="attr_spells_known_techmaturge" value="( (ceil((@{techmaturge_level}-2)/1e10)*3) + (ceil((@{techmaturge_level}-3)/1e10)) + (ceil((@{techmaturge_level}-6)/1e10)) + (ceil((@{techmaturge_level}-7)/1e10)) + (ceil((@{techmaturge_level}-9)/1e10)) + (ceil((@{techmaturge_level}-10)/1e10)) + (ceil((@{techmaturge_level}-12)/1e10)) + (ceil((@{techmaturge_level}-13)/1e10)) + (ceil((@{techmaturge_level}-15)/1e10)) + (ceil((@{techmaturge_level}-18)/1e10)) + (ceil((@{techmaturge_level}-19)/1e10)) )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
 							<input type="number" name="attr_spells_known_fauhwoon" value="( (ceil((@{level}-4)/1e10)) + (ceil((@{level}-10)/1e10)) + (ceil((@{level}-16)/1e10)) )" disabled="disabled" />
@@ -11994,27 +12015,6 @@
 						</div>
 						<div class="sheet-col-1-12">
 							<input type="number" name="attr_spells_known_yordle" value="( (ceil((@{level}-4)/1e10)) + (ceil((@{level}-8)/1e10)) + (ceil((@{level}-10)/1e10)) + (ceil((@{level}-14)/1e10)) + (ceil((@{level}-18)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_techmaturge" value="( (ceil((@{techmaturge_level}-2)/1e10)*3) + (ceil((@{techmaturge_level}-3)/1e10)) + (ceil((@{techmaturge_level}-6)/1e10)) + (ceil((@{techmaturge_level}-7)/1e10)) + (ceil((@{techmaturge_level}-9)/1e10)) + (ceil((@{techmaturge_level}-10)/1e10)) + (ceil((@{techmaturge_level}-12)/1e10)) + (ceil((@{techmaturge_level}-13)/1e10)) + (ceil((@{techmaturge_level}-15)/1e10)) + (ceil((@{techmaturge_level}-18)/1e10)) + (ceil((@{techmaturge_level}-19)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_combatant" value="( (ceil((@{combatant_level}-2)/1e10)*3) + (ceil((@{combatant_level}-3)/1e10)) + (ceil((@{combatant_level}-6)/1e10)) + (ceil((@{combatant_level}-7)/1e10)) + (ceil((@{combatant_level}-9)/1e10)) + (ceil((@{combatant_level}-10)/1e10)) + (ceil((@{combatant_level}-12)/1e10)) + (ceil((@{combatant_level}-13)/1e10)) + (ceil((@{combatant_level}-15)/1e10)) + (ceil((@{combatant_level}-18)/1e10)) + (ceil((@{combatant_level}-19)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_pilgrim" value="( (ceil((@{pilgrim_level})/1e10)*4) + (ceil((@{pilgrim_level}-1)/1e10)) + (ceil((@{pilgrim_level}-2)/1e10)) + (ceil((@{pilgrim_level}-3)/1e10)) + (ceil((@{pilgrim_level}-4)/1e10)) + (ceil((@{pilgrim_level}-5)/1e10)) + (ceil((@{pilgrim_level}-6)/1e10)) + (ceil((@{pilgrim_level}-7)/1e10)) + (ceil((@{pilgrim_level}-8)/1e10)) + (ceil((@{pilgrim_level}-9)/1e10)*2) + (ceil((@{pilgrim_level}-10)/1e10)) + (ceil((@{pilgrim_level}-11)/1e10)) + (ceil((@{pilgrim_level}-12)/1e10)) + (ceil((@{pilgrim_level}-13)/1e10)) + (ceil((@{pilgrim_level}-14)/1e10)) + (ceil((@{pilgrim_level}-15)/1e10)) + (ceil((@{pilgrim_level}-16)/1e10)*2) + (ceil((@{pilgrim_level}-17)/1e10)*2) + (ceil((@{pilgrim_level}-18)/1e10)*2) + (ceil((@{pilgrim_level}-17)/1e10)*4) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_hunter" value="( (ceil((@{hunter_level}-2)/1e10)*3) + (ceil((@{hunter_level}-3)/1e10)) + (ceil((@{hunter_level}-6)/1e10)) + (ceil((@{hunter_level}-7)/1e10)) + (ceil((@{hunter_level}-9)/1e10)) + (ceil((@{hunter_level}-10)/1e10)) + (ceil((@{hunter_level}-12)/1e10)) + (ceil((@{hunter_level}-13)/1e10)) + (ceil((@{hunter_level}-15)/1e10)) + (ceil((@{hunter_level}-18)/1e10)) + (ceil((@{hunter_level}-19)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_marksman" value="( (ceil((@{marksman_level}-2)/1e10)*3) + (ceil((@{marksman_level}-3)/1e10)) + (ceil((@{marksman_level}-6)/1e10)) + (ceil((@{marksman_level}-7)/1e10)) + (ceil((@{marksman_level}-9)/1e10)) + (ceil((@{marksman_level}-10)/1e10)) + (ceil((@{marksman_level}-12)/1e10)) + (ceil((@{marksman_level}-13)/1e10)) + (ceil((@{marksman_level}-15)/1e10)) + (ceil((@{marksman_level}-18)/1e10)) + (ceil((@{marksman_level}-19)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_mercurial" value="( (ceil((@{mercurial_level}-2)/1e10)*3) + (ceil((@{mercurial_level}-3)/1e10)) + (ceil((@{mercurial_level}-6)/1e10)) + (ceil((@{mercurial_level}-7)/1e10)) + (ceil((@{mercurial_level}-9)/1e10)) + (ceil((@{mercurial_level}-10)/1e10)) + (ceil((@{mercurial_level}-12)/1e10)) + (ceil((@{mercurial_level}-13)/1e10)) + (ceil((@{mercurial_level}-15)/1e10)) + (ceil((@{mercurial_level}-18)/1e10)) + (ceil((@{mercurial_level}-19)/1e10)) )" disabled="disabled" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_arcane" value="( ((ceil(@{arcane_level})/1e10)*6) + ((ceil(@{arcane_level}-1)/1e10)) + ((ceil(@{arcane_level}-2)/1e10)) + ((ceil(@{arcane_level}-3)/1e10)) + ((ceil(@{arcane_level}-4)/1e10)) + ((ceil(@{arcane_level}-5)/1e10)) + ((ceil(@{arcane_level}-6)/1e10)) + ((ceil(@{arcane_level}-7)/1e10)) + ((ceil(@{arcane_level}-8)/1e10)) + ((ceil(@{arcane_level}-9)/1e10)) + ((ceil(@{arcane_level}-10)/1e10))+ ((ceil(@{arcane_level}-11)/1e10)) + ((ceil(@{arcane_level}-12)/1e10)) + ((ceil(@{arcane_level}-13)/1e10)) + ((ceil(@{arcane_level}-14)/1e10)) + ((ceil(@{arcane_level}-15)/1e10)) + ((ceil(@{arcane_level}-16)/1e10)) + ((ceil(@{arcane_level}-17)/1e10)) + ((ceil(@{arcane_level}-18)/1e10)) + ((ceil(@{arcane_level}-19)/1e10))  )" disabled="disabled" />
 						</div>
 					</div>
 					<div class="sheet-row">
