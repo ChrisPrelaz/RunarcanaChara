@@ -11981,7 +11981,7 @@
 							<input type="text" name="attr_spells_known_acolyte" value="-" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_spells_known_arcane" value="( ((ceil(@{arcane_level})/1e10)*6) + ((ceil(@{arcane_level}-1)/1e10)) + ((ceil(@{arcane_level}-2)/1e10)) + ((ceil(@{arcane_level}-3)/1e10)) + ((ceil(@{arcane_level}-4)/1e10)) + ((ceil(@{arcane_level}-5)/1e10)) + ((ceil(@{arcane_level}-6)/1e10)) + ((ceil(@{arcane_level}-7)/1e10)) + ((ceil(@{arcane_level}-8)/1e10)) + ((ceil(@{arcane_level}-9)/1e10)) + ((ceil(@{arcane_level}-10)/1e10))+ ((ceil(@{arcane_level}-11)/1e10)) + ((ceil(@{arcane_level}-12)/1e10)) + ((ceil(@{arcane_level}-13)/1e10)) + ((ceil(@{arcane_level}-14)/1e10)) + ((ceil(@{arcane_level}-15)/1e10)) + ((ceil(@{arcane_level}-16)/1e10)) + ((ceil(@{arcane_level}-17)/1e10)) + ((ceil(@{arcane_level}-18)/1e10)) + ((ceil(@{arcane_level}-19)/1e10))  )" disabled="disabled" />
+							<input type="number" name="attr_spells_known_arcane" value="( (ceil((@{arcane_level})/1e10)*6) + (ceil((@{arcane_level}-1)/1e10)) + (ceil((@{arcane_level}-2)/1e10)) + (ceil((@{arcane_level}-3)/1e10)) + (ceil((@{arcane_level}-4)/1e10)) + (ceil((@{arcane_level}-5)/1e10)) + (ceil((@{arcane_level}-6)/1e10)) + (ceil((@{arcane_level}-7)/1e10)) + (ceil((@{arcane_level}-8)/1e10)) + (ceil((@{arcane_level}-9)/1e10)) + (ceil((@{arcane_level}-10)/1e10)) + (ceil((@{arcane_level}-11)/1e10)) + (ceil((@{arcane_level}-12)/1e10)) + (ceil((@{arcane_level}-13)/1e10)) + (ceil((@{arcane_level}-14)/1e10)) + (ceil((@{arcane_level}-15)/1e10)) + (ceil((@{arcane_level}-16)/1e10)) + (ceil((@{arcane_level}-17)/1e10)) + (ceil((@{arcane_level}-18)/1e10)) + (ceil((@{arcane_level}-19)/1e10))  )" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-12">
 							<input type="number" name="attr_spells_known_brute" value="( (ceil((@{brute_level}-2)/1e10)*3) + (ceil((@{brute_level}-3)/1e10)) + (ceil((@{brute_level}-6)/1e10)) + (ceil((@{brute_level}-7)/1e10)) + (ceil((@{brute_level}-9)/1e10)) + (ceil((@{brute_level}-10)/1e10)) + (ceil((@{brute_level}-12)/1e10)) + (ceil((@{brute_level}-13)/1e10)) + (ceil((@{brute_level}-15)/1e10)) + (ceil((@{brute_level}-18)/1e10)) + (ceil((@{bard_level}-19)/1e10))  )" disabled="disabled" />
@@ -12955,16 +12955,19 @@
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
 									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
+									<option value="Acolyte">Acolyte</option>
+									<option value="Arcane">Arcane</option>
+									<option value="Brute">Brute</option>
+									<option value="Combatant">Combatant</option>
+									<option value="Hunter">Hunter</option>
+									<option value="Marksman">Marksman</option>
+									<option value="Mercurial">Mercurial</option>
+									<option value="Pilgrim">Pilgrim</option>
+									<option value="Techmaturge">Techmaturge</option>
+									<option value="Fauhwoon">Fauhwoon</option>
+									<option value="Ottrani">Ottrani</option>
+									<option value="Runeborn">Runeborn</option>
+									<option value="Yordle">Yordle</option>
 									<option value="Other Source">Other</option>
 								</select>
 							</div>
@@ -13266,16 +13269,19 @@
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
 									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
+									<option value="Acolyte">Acolyte</option>
+									<option value="Arcane">Arcane</option>
+									<option value="Brute">Brute</option>
+									<option value="Combatant">Combatant</option>
+									<option value="Hunter">Hunter</option>
+									<option value="Marksman">Marksman</option>
+									<option value="Mercurial">Mercurial</option>
+									<option value="Pilgrim">Pilgrim</option>
+									<option value="Techmaturge">Techmaturge</option>
+									<option value="Fauhwoon">Fauhwoon</option>
+									<option value="Ottrani">Ottrani</option>
+									<option value="Runeborn">Runeborn</option>
+									<option value="Yordle">Yordle</option>
 									<option value="Other Source">Other</option>
 								</select>
 							</div>
@@ -13577,16 +13583,19 @@
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Use this field to indicate where you learned or have access to this spell from.  Useful to know if multiclassing or if you gain access to spells your class would not normally have thanks to subclass bonuses">
 								<select name="attr_spellgainedfrom">
 									<option value="Not Set">Not Set</option>
-									<option value="Arcane Trickster">Arcane Trickster</option>
-									<option value="Bard">Bard</option>
-									<option value="Cleric">Cleric</option>
-									<option value="Druid">Druid</option>
-									<option value="Eldritch Knight">Eldritch Knight</option>
-									<option value="Paladin">Paladin</option>
-									<option value="Ranger">Ranger</option>
-									<option value="Sorcerer">Sorcerer</option>
-									<option value="Warlock">Warlock</option>
-									<option value="Wizard">Wizard</option>
+									<option value="Acolyte">Acolyte</option>
+									<option value="Arcane">Arcane</option>
+									<option value="Brute">Brute</option>
+									<option value="Combatant">Combatant</option>
+									<option value="Hunter">Hunter</option>
+									<option value="Marksman">Marksman</option>
+									<option value="Mercurial">Mercurial</option>
+									<option value="Pilgrim">Pilgrim</option>
+									<option value="Techmaturge">Techmaturge</option>
+									<option value="Fauhwoon">Fauhwoon</option>
+									<option value="Ottrani">Ottrani</option>
+									<option value="Runeborn">Runeborn</option>
+									<option value="Yordle">Yordle</option>
 									<option value="Other Source">Other</option>
 								</select>
 							</div>
@@ -15443,16 +15452,16 @@
 					<input type="number" name="attr_total_weight" value="@{inventory_weight} + @{coin_weight} + @{other_weight}" disabled="disabled">
 				</div>
 				<div class="sheet-col-1-8 sheet-center">
-					<input type="number" name="attr_total_weight_max" title="The maximum total weight your character can carry" value="@{strength}*15" disabled="disabled">
+					<input type="number" name="attr_total_weight_max" title="The maximum total weight your character can carry" value="@{strength}*30" disabled="disabled">
 				</div>
 				<div class="sheet-col-1-8 sheet-center">
 					<input type="number" name="attr_max_push_drag_lift" title="This is the maximum weight you can push/drag/lift.  If the weight you are pushing/dragging/carrying exceeds your maximum carrying capacity then your speed drops to 5 feet" value="@{strength}*30" disabled="disabled">
 				</div>
 				<div class="sheet-col-1-8" title="Encumbered">
-					<input type="number" name="attr_encumbered" value="5*@{strength}" disabled="disabled">
+					<input type="number" name="attr_encumbered" value="10*@{strength}" disabled="disabled">
 				</div>
 				<div class="sheet-col-1-8" title="Heavily Encumbered">
-					<input type="number" name="attr_heavily_encumbered" value="10*@{strength}" disabled="disabled">
+					<input type="number" name="attr_heavily_encumbered" value="15*@{strength}" disabled="disabled">
 				</div>
 			</div>
 			<h4 class="sheet-center">Inventory <span class="sheet-pictos">O</span></h4>
@@ -16464,6 +16473,7 @@
 						<option value="(@{constitution_mod} + 0.002)">Brute's unarmoured defense</option>
 						<option value="(@{wisdom_mod} + 0.003)">Bodhisattva's unarmoured defense</option>
 						<option value="(1 + 0.004)">Minotaur Hide</option>
+						<option value="(@{constitution_mod} + 0.005)">Anthroplantae's Tree Skin</option>
 					</select>
 					<!-- Attention -->
 				</div>
